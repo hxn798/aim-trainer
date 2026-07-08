@@ -47,9 +47,8 @@ const Stats = (() => {
   }
 
   function getScore() {
-    const comboBonus = maxCombo * 50;
-    const reactionBonus = Math.max(0, 300 - getAvgReaction()) * 2;
-    return hits * 100 + comboBonus + reactionBonus;
+    // 每次命中固定 100 分
+    return hits * 100;
   }
 
   /** 跟枪模式计分 — 基于精度 */
