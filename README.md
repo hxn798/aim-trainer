@@ -1,8 +1,7 @@
 # 🎯 Aim Trainer — 网页版练枪工具
 
 纯前端 FPS 练枪网站，支持**定位射击**和**跟枪追踪**两种训练模式。
-
-🚀 **在线体验：[hxn798.github.io/aim-trainer](https://hxn798.github.io/aim-trainer/)**
+在线体验：[https://hxn798.github.io/aim-trainer/](https://hxn798.github.io/aim-trainer/)
 
 ## 快速开始
 
