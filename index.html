@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aim Trainer — 练枪法</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ========== 主页菜单 ========== -->
+<div id="menu" class="screen active">
+  <h1 class="logo">🎯 Aim Trainer</h1>
+  <p class="logo-sub">网页版练枪工具</p>
+
+  <div class="menu-section">
+    <h2>选择模式</h2>
+    <div class="mode-cards">
+      <div class="mode-card" data-mode="flick">
+        <div class="mode-icon">⚡</div>
+        <div class="mode-name">定位射击</div>
+        <div class="mode-desc">随机出现靶子，越快越好</div>
+      </div>
+      <div class="mode-card" data-mode="tracking">
+        <div class="mode-icon">🔄</div>
+        <div class="mode-name">跟枪追踪</div>
+        <div class="mode-desc">持续跟随移动中的目标</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-section">
+    <h2>设置</h2>
+    <div class="settings-grid">
+      <div class="setting-item">
+        <label>靶子大小</label>
+        <select id="opt-size">
+          <option value="large">大</option>
+          <option value="medium" selected>中</option>
+          <option value="small">小</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label>游戏时长</label>
+        <select id="opt-duration">
+          <option value="15">15 秒</option>
+          <option value="30" selected>30 秒</option>
+          <option value="60">60 秒</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <label>背景主题</label>
+        <select id="opt-theme">
+          <option value="dark" selected>暗黑</option>
+          <option value="midnight">午夜蓝</option>
+          <option value="green">战术绿</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <button id="btn-start" class="btn-primary" disabled>开始训练</button>
+</div>
+
+<!-- ========== 游戏画面 ========== -->
+<div id="game" class="screen">
+  <div class="hud">
+    <div class="hud-left">
+      <span id="hud-score">得分: 0</span>
+      <span id="hud-combo" class="combo-display"></span>
+    </div>
+    <div class="hud-center">
+      <span id="hud-timer">30</span>s
+    </div>
+    <div class="hud-right">
+      <span id="hud-accuracy">命中率: 0%</span>
+    </div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <!-- 游戏结束遮罩 -->
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-panel">
+      <h2>训练结束</h2>
+      <div class="result-grid">
+        <div class="result-item">
+          <div class="result-value" id="res-score">0</div>
+          <div class="result-label">总分</div>
+        </div>
+        <div class="result-item">
+          <div class="result-value" id="res-accuracy">0%</div>
+          <div class="result-label" id="res-accuracy-label">命中率</div>
+        </div>
+        <div class="result-item">
+          <div class="result-value" id="res-avg-click">0ms</div>
+          <div class="result-label">平均反应</div>
+        </div>
+        <div class="result-item">
+          <div class="result-value" id="res-max-combo">0</div>
+          <div class="result-label">最高连击</div>
+        </div>
+      </div>
+      <div class="result-actions">
+        <button id="btn-retry" class="btn-primary">再来一次</button>
+        <button id="btn-menu" class="btn-secondary">返回菜单</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/stats.js"></script>
+<script src="js/canvas.js"></script>
+<script src="js/flick.js"></script>
+<script src="js/tracking.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

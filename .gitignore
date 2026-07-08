@@ -1,0 +1,18 @@
+# 忽略 IDE 配置
+.vscode/
+.idea/
+
+# 忽略 node_modules（如使用 npm 安装 server 依赖）
+node_modules/
+
+# 忽略 macOS 系统文件
+.DS_Store
+
+# 忽略 Thumbs.db（Windows）
+Thumbs.db
+
+# 忽略服务器日志
+*.log
+
+# 忽略 Playwright 测试临时文件
+.playwright-cli/
