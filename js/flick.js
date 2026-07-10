@@ -43,9 +43,11 @@ const Flick = (() => {
 
     if (target && Canvas.hitTest(pos.x, pos.y, target.x, target.y, target.radius)) {
       Stats.onHit();
+      AudioFX.playHit();
       spawn();
     } else {
       Stats.onMiss();
+      AudioFX.playMiss();
     }
   }
 
