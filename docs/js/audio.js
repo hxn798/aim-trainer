@@ -6,19 +6,19 @@ const AudioFX = (() => {
   let ctx = null;
 
   /** 懒初始化 AudioContext（需要用户交互触发） */
-  function getContext() {
+  async function getContext() {
     if (!ctx) {
       ctx = new (window.AudioContext || window.webkitAudioContext)();
     }
     if (ctx.state === 'suspended') {
-      ctx.resume();
+      await ctx.resume();
     }
     return ctx;
   }
 
   /** 命中音效 — 短促清脆的"叮"声 */
-  function playHit() {
-    const audioCtx = getContext();
+  async function playHit() {
+    const audioCtx = await getContext();
     const now = audioCtx.currentTime;
 
     // 主音：高频正弦波
@@ -53,8 +53,8 @@ const AudioFX = (() => {
   }
 
   /** 失误音效 — 低沉的"嗡"声 */
-  function playMiss() {
-    const audioCtx = getContext();
+  async function playMiss() {
+    const audioCtx = await getContext();
     const now = audioCtx.currentTime;
 
     const osc = audioCtx.createOscillator();
